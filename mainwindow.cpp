@@ -27,7 +27,9 @@ MainWindow::~MainWindow()
 void MainWindow::on_BTN_CONNECT_clicked()
 {
     QString ipAdress=ui->ipAdress_line->text();
+    QString localIP = "192.168.11.21";
     QHostAddress hostAdress(ipAdress);
+    QHostAddress localHostAdress(localIP);
     quint16 port =ui->spn_PORT->value();
     quint16 localport= ui->spinBox->value();
 
@@ -44,7 +46,7 @@ void MainWindow::on_BTN_CONNECT_clicked()
         udpSocket->close();
     }
     else{
-        if(!udpSocket->bind(QHostAddress::Any,localport)){
+        if(!udpSocket->bind(localHostAdress,localport)){
             QListWidgetItem*errorItem=new QListWidgetItem("Failed to bind to local port");
             errorItem->setForeground(QBrush(Qt::red));
             ui->console->addItem(errorItem);
