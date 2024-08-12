@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->btn_SEND->setStyleSheet(disabledStlylesheet);
     ui->ipAdress_line->setStyleSheet(ipStylesheet);
     ui->spn_PORT->setStyleSheet(portStylesheet);
+    ui->spinBox->setStyleSheet(portStylesheet);
     udpSocket= new QUdpSocket(this);
     ui->btn_SEND->setEnabled(false);
 
@@ -25,41 +26,66 @@ MainWindow::~MainWindow()
 }
 void MainWindow::on_BTN_CONNECT_clicked()
 {
+    QString ipAdress=ui->ipAdress_line->text();
+    QHostAddress hostAdress(ipAdress);
+    quint16 port =ui->spn_PORT->value();
+    quint16 localport= ui->spinBox->value();
+
+    if(ipAdress.isEmpty() || port == 0|| localport==0){
+        QMessageBox:: warning(this,"Error","Please enter a valid IP adress and port number.");
+        return;
+    }
+
     if(ui->BTN_CONNECT->text() == "DİSCONNECT")
     {
         connected= false;
-        udpSocket->disconnected();
+        udpSocket->disconnectFromHost();
         disconnected();
         udpSocket->close();
     }
     else{
-        QString ipAdress=ui->ipAdress_line->text();
-        quint16 port =ui->spn_PORT->value();
-        if(ipAdress.isEmpty() || port == 0){
-            QMessageBox:: warning(this,"Error","Please enter a valid IP adress and port number.");
+        if(!udpSocket->bind(QHostAddress::Any,localport)){
+            QListWidgetItem*errorItem=new QListWidgetItem("Failed to bind to local port");
+            errorItem->setForeground(QBrush(Qt::red));
+            ui->console->addItem(errorItem);
             return;
         }
 
-    ui->BTN_CONNECT->setText("DİSCONNECT");
-    ui->BTN_CONNECT->setStyleSheet(disconnectStylesheet);
-    ui->btn_SEND->setStyleSheet(sendStylesheet);
-    ui->ipAdress_line->setStyleSheet(ipdisabledStylesheet);
-    ui->spn_PORT->setStyleSheet(portdisabledStylesheet);
-    QListWidgetItem *item =new QListWidgetItem("UDP Socket created");
-    item->setForeground(QBrush(Qt::green));
-    ui->console->addItem(item);
-    ui->btn_SEND->setEnabled(true);
-    ui->ipAdress_line->text();
-    QHostAddress hostAdress(ipAdress);
-    udpSocket->bind(hostAdress,ui->spn_PORT->value());//dinleme ve port seçimi
-    connect(udpSocket,SIGNAL(readyRead()),this,SLOT(readPendingDatagrams()));//sinyal gönderme
-    if(!connected){
+        ui->BTN_CONNECT->setText("DİSCONNECT");
+        ui->BTN_CONNECT->setStyleSheet(disconnectStylesheet);
+        ui->btn_SEND->setStyleSheet(sendStylesheet);
+        ui->ipAdress_line->setStyleSheet(ipdisabledStylesheet);
+        ui->spn_PORT->setStyleSheet(portdisabledStylesheet);
+        ui->spinBox->setStyleSheet(portdisabledStylesheet);
+        QListWidgetItem *item =new QListWidgetItem("UDP Socket created");
+        item->setForeground(QBrush(Qt::green));
+        ui->console->addItem(item);
+        ui->btn_SEND->setEnabled(true);
+
+        connect(udpSocket,SIGNAL(readyRead()),this,SLOT(readPendingDatagrams()));//sinyal gönderme
+        connected=true;
         const char data[]="Succes";
         int size =sizeof(data)-1;
         QByteArray datagram(data,size);
-        udpSocket->writeDatagram(datagram,hostAdress,ui->spn_PORT->value());
-        }
+        udpSocket->writeDatagram(datagram,QHostAddress(ipAdress),port);
+
     }
+}
+void MainWindow::send(QString message)
+{
+    QString ipAdress= ui->ipAdress_line->text();
+    QHostAddress hostAdress(ipAdress);
+    QByteArray datagrams= (message.toUtf8());// iletisim kurma(ag üzerinden veri gönderme)
+    udpSocket->writeDatagram(datagrams,hostAdress,ui->spn_PORT->value());
+    ui->listWidget->addItem(datagrams);
+}
+void MainWindow::on_btn_SEND_clicked()
+{
+    QString mesaj= ui->textEdit->toPlainText();
+    if(mesaj.trimmed().isEmpty()){//mesaj yoksa ve boşluktan oluşuyorsa  bir şey yapma
+        return;
+    }
+    send(mesaj);
 }
 void MainWindow::readPendingDatagrams(){
     while(false!=udpSocket->hasPendingDatagrams()){
@@ -76,24 +102,9 @@ void MainWindow::disconnected()
     ui->btn_SEND->setStyleSheet(disabledStlylesheet);
     ui->ipAdress_line->setStyleSheet(ipStylesheet);
     ui->spn_PORT->setStyleSheet(portStylesheet);
+    ui->spinBox->setStyleSheet(portStylesheet);
     QListWidgetItem *item =new QListWidgetItem("UDP Socket deleted");
     item->setForeground(QBrush(Qt::red));
     ui->console->addItem(item);
     ui->btn_SEND->setEnabled(false);
-}
-void MainWindow::on_btn_SEND_clicked()
-{
-    QString mesaj= ui->textEdit->toPlainText();
-    if(mesaj.trimmed().isEmpty()){//mesaj yoksa ve boşluktan oluşuyorsa  bir şey yapma
-        return;
-    }
-    send(mesaj);
-}
-void MainWindow::send(QString message)
-{
-    QString ipAdress= ui->ipAdress_line->text();
-    QHostAddress hostAdress(ipAdress);
-    QByteArray datagrams= (message.toUtf8());// iletisim kurma(ag üzerinden veri gönderme)
-    udpSocket->writeDatagram(datagrams,hostAdress,ui->spn_PORT->value());
-    ui->listWidget->addItem(datagrams);
 }
