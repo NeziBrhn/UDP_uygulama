@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1006</width>
-    <height>882</height>
+    <width>1087</width>
+    <height>821</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,134 +23,196 @@
    <string/>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(71, 71, 71);</string>
+   <string notr="true">
+background-color: rgb(71,71,71);
+color: rgb(0, 0, 0);</string>
   </property>
   <property name="documentMode">
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGroupBox" name="groupBox">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>80</y>
-      <width>401</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(45, 45, 45);</string>
-    </property>
-    <property name="title">
-     <string/>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="styleSheet">
-        <string notr="true">font: 900 11pt &quot;Arial Black&quot;;
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tabWidgetPage1">
+       <attribute name="title">
+        <string>TCP</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_10">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_8">
+          <property name="styleSheet">
+           <string notr="true">
+font: 900 45pt &quot;Arial Black&quot;;
+
 color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string>PORT :</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QSpinBox" name="spn_PORT">
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="maximum">
-        <number>999999999</number>
-       </property>
-       <property name="value">
-        <number>0</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="BTN_CONNECT">
-       <property name="minimumSize">
-        <size>
-         <width>122</width>
-         <height>24</height>
-        </size>
-       </property>
-       <property name="toolTip">
-        <string>UDP connection</string>
-       </property>
-       <property name="toolTipDuration">
-        <number>-1</number>
-       </property>
-       <property name="statusTip">
-        <string/>
-       </property>
-       <property name="whatsThis">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>CONNECT</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QGroupBox" name="groupBox_2">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>150</y>
-      <width>431</width>
-      <height>661</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
+          </property>
+          <property name="text">
+           <string>TCP Terminal</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QGroupBox" name="groupBox_7">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(45, 45, 45);</string>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_7">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_10">
+             <property name="styleSheet">
+              <string notr="true">font: 900 11pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);</string>
+             </property>
+             <property name="text">
+              <string>IP Address:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="ipAdress_TCP">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QGroupBox" name="groupBox_6">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(45, 45, 45);</string>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_8">
+           <item row="0" column="2">
+            <widget class="QPushButton" name="BTN_CONNECT_TCP">
+             <property name="minimumSize">
+              <size>
+               <width>122</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>UDP connection</string>
+             </property>
+             <property name="toolTipDuration">
+              <number>-1</number>
+             </property>
+             <property name="statusTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>CONNECT</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_9">
+             <property name="styleSheet">
+              <string notr="true">font: 900 11pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);</string>
+             </property>
+             <property name="text">
+              <string>PORT :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QSpinBox" name="spn_PORT_TCP">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="maximum">
+              <number>999999999</number>
+             </property>
+             <property name="value">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QGroupBox" name="groupBox_8">
+          <property name="styleSheet">
+           <string notr="true">
 background-color: rgb(45, 45, 45);</string>
-    </property>
-    <property name="title">
-     <string/>
-    </property>
-    <widget class="QPushButton" name="btn_SEND">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>620</y>
-       <width>191</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string>Send macro</string>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="text">
-      <string>SEND</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="BTN_clear">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>620</y>
-       <width>211</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QLabel" name="label_11">
+             <property name="styleSheet">
+              <string notr="true">font: 900 11pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);</string>
+             </property>
+             <property name="text">
+              <string>SEND</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="textEdit_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(71, 71, 71);
+color: rgb(255, 255, 255);</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btn_SEND_TCP">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>37</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>Send macro</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>SEND</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="BTN_clear_2">
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
 QPushButton{
     background-color: rgb(71, 71, 71);
     color: rgb(255, 255, 255);
@@ -162,102 +224,66 @@ QPushButton::pressed{
      background-color: rgb(11, 170, 16);
     color: rgb(255, 255, 255);
 }</string>
-     </property>
-     <property name="text">
-      <string>CLEAR</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_6">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>10</y>
-       <width>161</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 900 11pt &quot;Arial Black&quot;;
+             </property>
+             <property name="text">
+              <string>CLEAR</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QGroupBox" name="groupBox_9">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(45, 45, 45);</string>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_9">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_12">
+             <property name="styleSheet">
+              <string notr="true">font: 900 11pt &quot;Arial Black&quot;;
 color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string>SEND</string>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="textEdit">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>50</y>
-       <width>411</width>
-       <height>561</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(71, 71, 71);
+             </property>
+             <property name="text">
+              <string>RECEIVED DATA</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QListWidget" name="console_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(71, 71, 71);
 color: rgb(255, 255, 255);</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>391</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">;
-font: 900 36pt &quot;Arial Black&quot;;
-
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_13">
+             <property name="styleSheet">
+              <string notr="true">font: 900 11pt &quot;Arial Black&quot;;
 color: rgb(255, 255, 255);</string>
-    </property>
-    <property name="text">
-     <string>UDP Terminal</string>
-    </property>
-   </widget>
-   <widget class="QGroupBox" name="groupBox_3">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>150</y>
-      <width>441</width>
-      <height>661</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(45, 45, 45);</string>
-    </property>
-    <property name="title">
-     <string/>
-    </property>
-    <widget class="QListWidget" name="console">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>50</y>
-       <width>421</width>
-       <height>251</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(71, 71, 71);
+             </property>
+             <property name="text">
+              <string>SENT DATA</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QListWidget" name="listWidget_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(71, 71, 71);
 color: rgb(255, 255, 255);</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>620</y>
-       <width>421</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QPushButton" name="pushButton_2">
+             <property name="styleSheet">
+              <string notr="true">
 QPushButton{
     background-color: rgb(71, 71, 71);
     color: rgb(255, 255, 255);
@@ -269,156 +295,326 @@ QPushButton::pressed{
     background-color: rgb(11, 170, 16);
     color: rgb(255, 255, 255);
 }</string>
-     </property>
-     <property name="text">
-      <string>CLEAR</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_4">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>10</y>
-       <width>161</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 900 11pt &quot;Arial Black&quot;;
+             </property>
+             <property name="text">
+              <string>CLEAR</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabWidgetPage2">
+       <attribute name="title">
+        <string>UDP</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="2" column="1">
+         <widget class="QGroupBox" name="groupBox">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(45, 45, 45);</string>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="2">
+            <widget class="QPushButton" name="BTN_CONNECT">
+             <property name="minimumSize">
+              <size>
+               <width>122</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="toolTipDuration">
+              <number>-1</number>
+             </property>
+             <property name="statusTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>CONNECT</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label">
+             <property name="styleSheet">
+              <string notr="true">font: 900 11pt &quot;Arial Black&quot;;
 color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string>RECEİVED DATA</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>310</y>
-       <width>161</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 900 11pt &quot;Arial Black&quot;;
+             </property>
+             <property name="text">
+              <string>PORT :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QSpinBox" name="spn_PORT">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="maximum">
+              <number>999999999</number>
+             </property>
+             <property name="value">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QGroupBox" name="groupBox_3">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(45, 45, 45);</string>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_4">
+             <property name="styleSheet">
+              <string notr="true">font: 900 11pt &quot;Arial Black&quot;;
 color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string>SENT DATA</string>
-     </property>
-    </widget>
-    <widget class="QListWidget" name="listWidget">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>340</y>
-       <width>421</width>
-       <height>271</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(71, 71, 71);
+             </property>
+             <property name="text">
+              <string>RECEIVED DATA</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QListWidget" name="console">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(71, 71, 71);
 color: rgb(255, 255, 255);</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="groupBox_4">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>80</y>
-      <width>361</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(45, 45, 45);</string>
-    </property>
-    <property name="title">
-     <string/>
-    </property>
-    <widget class="QLabel" name="label_5">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>20</y>
-       <width>101</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 900 11pt &quot;Arial Black&quot;;
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_2">
+             <property name="styleSheet">
+              <string notr="true">font: 900 11pt &quot;Arial Black&quot;;
 color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string>IP Adress:</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="ipAdress_line">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>13</y>
-       <width>221</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="groupBox_5">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>29</y>
-      <width>401</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(45, 45, 45);</string>
-    </property>
-    <property name="title">
-     <string/>
-    </property>
-    <widget class="QLabel" name="label_7">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>122</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 900 11pt &quot;Arial Black&quot;;
+             </property>
+             <property name="text">
+              <string>SENT DATA</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QListWidget" name="listWidget">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(71, 71, 71);
 color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string>LOCAL PORT:</string>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="spinBox">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>10</y>
-       <width>111</width>
-       <height>25</height>
-      </rect>
-     </property>
-    </widget>
-   </widget>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QPushButton" name="pushButton">
+             <property name="styleSheet">
+              <string notr="true">
+QPushButton{
+    background-color: rgb(71, 71, 71);
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;      
+    font-size: 11px;         
+
+}
+QPushButton::pressed{
+    background-color: rgb(11, 170, 16);
+    color: rgb(255, 255, 255);
+}</string>
+             </property>
+             <property name="text">
+              <string>CLEAR</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="styleSheet">
+           <string notr="true">
+background-color: rgb(45, 45, 45);</string>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QLabel" name="label_6">
+             <property name="styleSheet">
+              <string notr="true">font: 900 11pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);</string>
+             </property>
+             <property name="text">
+              <string>SEND</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="textEdit">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(71, 71, 71);
+color: rgb(255, 255, 255);</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btn_SEND">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>37</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>Send macro</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>SEND</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="BTN_clear">
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+QPushButton{
+    background-color: rgb(71, 71, 71);
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;      
+    font-size: 11px;         
+
+}
+QPushButton::pressed{
+     background-color: rgb(11, 170, 16);
+    color: rgb(255, 255, 255);
+}</string>
+             </property>
+             <property name="text">
+              <string>CLEAR</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QGroupBox" name="groupBox_5">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(45, 45, 45);</string>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="1">
+            <widget class="QSpinBox" name="spinBox">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_7">
+             <property name="styleSheet">
+              <string notr="true">font: 900 11pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);</string>
+             </property>
+             <property name="text">
+              <string>LOCAL PORT:</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QGroupBox" name="groupBox_4">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(45, 45, 45);</string>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_5">
+             <property name="styleSheet">
+              <string notr="true">font: 900 11pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);</string>
+             </property>
+             <property name="text">
+              <string>IP Address:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="ipAdress_line">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="0" rowspan="2">
+         <widget class="QLabel" name="label_3">
+          <property name="styleSheet">
+           <string notr="true">
+font: 900 45pt &quot;Arial Black&quot;;
+
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>UDP Terminal</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1006</width>
+     <width>1087</width>
      <height>21</height>
     </rect>
    </property>
@@ -434,8 +630,8 @@ color: rgb(255, 255, 255);</string>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>670</x>
-     <y>791</y>
+     <x>1054</x>
+     <y>762</y>
     </hint>
     <hint type="destinationlabel">
      <x>649</x>
@@ -450,8 +646,8 @@ color: rgb(255, 255, 255);</string>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>584</x>
-     <y>791</y>
+     <x>1054</x>
+     <y>762</y>
     </hint>
     <hint type="destinationlabel">
      <x>571</x>
@@ -466,12 +662,60 @@ color: rgb(255, 255, 255);</string>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>342</x>
-     <y>802</y>
+     <x>374</x>
+     <y>762</y>
     </hint>
     <hint type="destinationlabel">
-     <x>340</x>
-     <y>777</y>
+     <x>372</x>
+     <y>676</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BTN_clear_2</sender>
+   <signal>clicked()</signal>
+   <receiver>textEdit_2</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>51</x>
+     <y>751</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>50</x>
+     <y>649</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>listWidget_2</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>693</x>
+     <y>744</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>686</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>console_2</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>614</x>
+     <y>747</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>571</x>
+     <y>431</y>
     </hint>
    </hints>
   </connection>

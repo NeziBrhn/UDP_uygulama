@@ -4,6 +4,7 @@
 #include "MY_UDP.h"
 #include <QMainWindow>
 #include<QUdpSocket>
+#include<QTcpSocket>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,17 +21,20 @@ public slots:
     void readPendingDatagrams();
     void disconnected();
     void send(QString message);
+    void tcp_disconnected();
+    void send_TCP(QString message1);
+    void TCP_READY();
 private slots:
     void on_BTN_CONNECT_clicked();
-
     void on_btn_SEND_clicked();
-
+    void on_BTN_CONNECT_TCP_clicked();
+    void on_btn_SEND_TCP_clicked();
 private:
     Ui::MainWindow *ui;
     QUdpSocket *udpSocket;
     MY_UDP *_socket;
     bool connected;
-
+    QTcpSocket *tcpSocket;
     const QString connectStylesheet =        "QPushButton {"
                                              "    background-color: #0baa10;"  // Başlangıçta yeşil arka plan rengi
                                              "    color: white;"               // Metin rengi
@@ -91,5 +95,10 @@ private:
                                                "     background-color: #2d2d2d; "
                                                "     font-size:14px;"
                                                "}";
+    const QString MessageBox=                     "QMessageBox {"
+                                                "     background-color: ##ffffff; "
+                                                "     color : black;"
+                                                "     font-size:14px;"
+                                                "}";
 };
 #endif // MAINWINDOW_H
