@@ -2,9 +2,11 @@
 #define MAINWINDOW_H
 
 #include "MY_UDP.h"
+#include "qtcpserver.h"
 #include <QMainWindow>
 #include<QUdpSocket>
 #include<QTcpSocket>
+#include<QTcpServer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,17 +26,28 @@ public slots:
     void tcp_disconnected();
     void send_TCP(QString message1);
     void TCP_READY();
+    void acceptConnection();
+    void tcp_SERVER_disconnected();
+    void send_TCP_SERVER(QString message2);
 private slots:
     void on_BTN_CONNECT_clicked();
     void on_btn_SEND_clicked();
     void on_BTN_CONNECT_TCP_clicked();
     void on_btn_SEND_TCP_clicked();
+    void on_btn_listen_clicked();
+
+    void on_btn_send_server_clicked();
+
+    void errorOccurredSlot(QAbstractSocket::SocketError error);
+
 private:
     Ui::MainWindow *ui;
     QUdpSocket *udpSocket;
     MY_UDP *_socket;
     bool connected;
     QTcpSocket *tcpSocket;
+    QTcpServer *tcpServer;
+    QTcpSocket *clientSocket;
     const QString connectStylesheet =        "QPushButton {"
                                              "    background-color: #0baa10;"  // Başlangıçta yeşil arka plan rengi
                                              "    color: white;"               // Metin rengi
